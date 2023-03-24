@@ -3,10 +3,6 @@ function getInputFieldValueById(inputId){
     const inputFieldValueString = inputField.value;
     const inputFieldValue = parseFloat(inputFieldValueString);
     inputField.value = '';
-    if(isNaN(inputId)){
-        alert('Please Provide Valid Number');
-        return;
-     }
     return inputFieldValue;
     
  }

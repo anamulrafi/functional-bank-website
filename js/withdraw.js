@@ -44,14 +44,27 @@
 
 document.getElementById('btn-withdraw').addEventListener('click', function(){
     const newWithdrawAmount = getInputFieldValueById('withdraw-amount');
-    const previousrWithdrawTotal = getTextElementValueById('withdraw-total');
-    const newWithdrawTotal = previousrWithdrawTotal + newWithdrawAmount;
-    setTextElementValueById('withdraw-total', newWithdrawTotal);
-   //setTextElementValueById('balance-total', newBalanceTotal);
     const previousBalanceTotal = getTextElementValueById('balance-total');
-    const newBalanceTotal = previousBalanceTotal - newWithdrawAmount;
+
+    if(newWithdrawAmount > previousBalanceTotal){
+        alert ('Insufficient Balance');
+        return;
+    }
+    else{
+        const previousrWithdrawTotal = getTextElementValueById('withdraw-total');
+
+        const newWithdrawTotal = previousrWithdrawTotal + newWithdrawAmount;
+        setTextElementValueById('withdraw-total', newWithdrawTotal);
+        const newBalanceTotal = previousBalanceTotal - newWithdrawAmount;
     setTextElementValueById('balance-total', newBalanceTotal );
 
+    }
+    
+    
+    
+   
+   //setTextElementValueById('balance-total', newBalanceTotal);
+    
 
 
 })

@@ -40,6 +40,10 @@ function getTextElementValueById(elementId){
    const value = parseFloat(elementValueString);
    return value;
 }
+function setTextElementValueById(elementId, newValue){
+   const textElement = document.getElementById(elementId);
+   textElement.innerHTML = newValue;
+}
 document.getElementById('btn-deposit').addEventListener('click',function(){
    /*
    step:1 . Get the element by Id
@@ -52,5 +56,12 @@ document.getElementById('btn-deposit').addEventListener('click',function(){
    const previousDepositTotal = getTextElementValueById('deposit-total');
    // calculate the new deposit total
    const newDepositTotal = previousDepositTotal + newDepositAmount;
+   // set deposit Total value
+   setTextElementValueById('deposit-total', newDepositTotal);
+
+   // get previous balance by using the function
+   const previousBalanceTotal = getTextElementValueById('balance-total');
+   const newBalanceTotal = previousBalanceTotal + newDepositAmount ;
+   setTextElementValueById('balance-total', newBalanceTotal);
 })
 
